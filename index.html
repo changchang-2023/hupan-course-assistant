@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b3d3b" />
+    <meta name="description" content="输入姓名查询湖畔实战营第四期分组、成员、参观安排和课程通知。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="湖畔课程助手｜第四期" />
+    <meta property="og:description" content="输入姓名，查看你的小组、参观时间和课程重点提醒。" />
+    <meta property="og:image" content="web-assets/og.jpg" />
+    <title>湖畔课程助手｜第四期</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="lookup-page">
+    <header class="course-hero" aria-label="业绩倍增实战营第四期">
+      <img src="web-assets/course-hero.jpg" alt="私域零售第一课，业绩倍增第四期" />
+    </header>
+
+    <main>
+      <section class="lookup-band" aria-labelledby="lookup-title">
+        <div class="content lookup-inner">
+          <div>
+            <p class="eyebrow">第四期 · 学员查询</p>
+            <h1 id="lookup-title">输入姓名，查看你的小组</h1>
+            <p class="lookup-note">名单仅在姓名准确匹配后显示</p>
+          </div>
+          <form id="lookup-form" class="lookup-form">
+            <label class="sr-only" for="name-input">学员姓名</label>
+            <input id="name-input" name="name" autocomplete="name" placeholder="请输入报名姓名" maxlength="12" />
+            <button type="submit">查询</button>
+          </form>
+          <p id="lookup-status" class="lookup-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="group-result" class="result-band" hidden aria-labelledby="result-title">
+        <div class="content">
+          <div class="result-heading">
+            <div>
+              <p class="eyebrow">查询结果</p>
+              <h2 id="result-title"><span id="result-name"></span> · 第<span id="result-group"></span>组</h2>
+            </div>
+            <span class="group-seal" id="group-seal"></span>
+          </div>
+          <div id="personal-arrival" class="arrival-callout"></div>
+          <h3 class="minor-title">同组成员</h3>
+          <div id="member-list" class="member-grid"></div>
+          <button id="generate-poster" class="generate-poster" type="button">
+            <span>生成我的提醒图</span>
+            <small>微信长按即可保存</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="notice-band" aria-labelledby="notice-title">
+        <div class="content">
+          <p class="eyebrow">先看这里</p>
+          <h2 id="notice-title">必须记住的课程信息</h2>
+          <div class="facts-grid">
+            <article class="fact fact-accent">
+              <span class="fact-label">签到</span>
+              <strong>7月31日 13:00-21:00</strong>
+              <p>前台大堂，凭身份证办理并领取物料</p>
+            </article>
+            <article class="fact">
+              <span class="fact-label">补签</span>
+              <strong>8月1日 7:30-8:30</strong>
+              <p>当天未提前签到的学员可补签</p>
+            </article>
+            <article class="fact">
+              <span class="fact-label">地点</span>
+              <strong>“无知”小礼堂</strong>
+              <p>杭州湖畔创研中心，礼贤路9号</p>
+            </article>
+            <article class="fact">
+              <span class="fact-label">主讲</span>
+              <strong>肖尚略老师</strong>
+              <p>8月1日至8月2日，共2天1夜</p>
+            </article>
+          </div>
+          <div class="time-warning">
+            <strong>时间口径提醒</strong>
+            <p>群通知写8月1日8:00-21:00、8月2日8:00-17:00；议程图写授课9:00开始，第一天到22:30、第二天16:30结束。请按分组要求提前到场，并以现场主持人通知为准。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="visit-band" aria-labelledby="visit-title">
+        <div class="content">
+          <p class="eyebrow">分组参观</p>
+          <h2 id="visit-title">两天到场时间不一样</h2>
+          <div class="visit-grid">
+            <article>
+              <span class="date-chip">8月1日</span>
+              <h3>第1-9组参观</h3>
+              <p><strong>7:40会场集合</strong>，8:00开始参观</p>
+            </article>
+            <article>
+              <span class="date-chip">8月2日</span>
+              <h3>第10-19组参观</h3>
+              <p><strong>7:40会场集合</strong>，8:00开始参观</p>
+            </article>
+          </div>
+          <p class="visit-footnote">不参加参观或之前已经参观过：当天8:30到会场。第十九组名单待补充。</p>
+        </div>
+      </section>
+
+      <section class="schedule-band" aria-labelledby="schedule-title">
+        <div class="content">
+          <p class="eyebrow">课程议程</p>
+          <div class="schedule-title-row">
+            <h2 id="schedule-title">两天怎么安排</h2>
+            <div class="segmented" role="tablist" aria-label="选择课程日期">
+              <button type="button" role="tab" aria-selected="true" data-day="day1">8月1日</button>
+              <button type="button" role="tab" aria-selected="false" data-day="day2">8月2日</button>
+            </div>
+          </div>
+          <div id="schedule-list" class="schedule-list"></div>
+          <p class="schedule-note">具体时间以现场主持人通知为准</p>
+        </div>
+      </section>
+
+      <section class="prep-band" aria-labelledby="prep-title">
+        <div class="content prep-layout">
+          <div>
+            <p class="eyebrow">出发前</p>
+            <h2 id="prep-title">带这些就够了</h2>
+          </div>
+          <ul class="checklist">
+            <li><strong>身份证</strong><span>没有身份证无法签到</span></li>
+            <li><strong>电脑</strong><span>制作方案使用，每组至少1台</span></li>
+            <li><strong>外套</strong><span>室内空调温度较低</span></li>
+            <li><strong>车牌号</strong><span>自驾提前报备给“提子”</span></li>
+          </ul>
+          <div class="service-strip">
+            <p><strong>统一用餐：</strong>8月1日午餐、晚餐；8月2日午餐</p>
+            <p><strong>自行安排：</strong>住宿及往返杭州的大交通</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="route-band" aria-labelledby="route-title">
+        <div class="content">
+          <p class="eyebrow">到达路线</p>
+          <h2 id="route-title">进园后这样走</h2>
+          <div class="route-copy">
+            <p><strong>步行：</strong>门岗 → 环岛 → 泮桥 → 前台</p>
+            <p><strong>自驾：</strong>门岗 → 地下停车场入口 → 前台；园区免费停车，须提前报备车牌</p>
+          </div>
+          <figure class="map-figure">
+            <img src="web-assets/campus-map.jpg" alt="湖畔创研中心入园总动线图" />
+            <figcaption>入园总动线</figcaption>
+          </figure>
+          <div class="route-images">
+            <figure>
+              <img src="web-assets/walk-route.jpg" alt="步行从门岗到无知之门的路线照片" />
+              <figcaption>步行路线实景</figcaption>
+            </figure>
+            <figure>
+              <img src="web-assets/drive-route.jpg" alt="自驾从停车场到前台的路线照片" />
+              <figcaption>自驾停车路线实景</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="transport-band" aria-labelledby="transport-title">
+        <div class="content">
+          <p class="eyebrow">外地到达</p>
+          <h2 id="transport-title">交通参考</h2>
+          <div class="transport-grid">
+            <p><strong>杭州西站</strong><span>约2.6公里 / 8分钟 / 10元</span></p>
+            <p><strong>杭州东站</strong><span>约26公里 / 40-50分钟 / 40元</span></p>
+            <p><strong>杭州南站</strong><span>约49公里 / 60分钟 / 100元</span></p>
+            <p><strong>萧山机场</strong><span>约50公里 / 70分钟 / 120元</span></p>
+          </div>
+          <p class="source-note">以上为百度地图参考信息，实际以当日路况为准。附近酒店请自行提前预订。</p>
+        </div>
+      </section>
+
+      <section class="original-band">
+        <div class="content">
+          <details>
+            <summary>查看原始课程表</summary>
+            <img src="web-assets/schedule.jpg" alt="第四期业绩倍增课程原始议程图" />
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>第四期湖畔课程助手 · 整理于2026年7月31日</p>
+      <p>现场如有临时调整，以工作人员和主持人通知为准</p>
+    </footer>
+
+    <div id="poster-modal" class="poster-modal" hidden role="dialog" aria-modal="true" aria-labelledby="poster-modal-title">
+      <div class="poster-modal-panel">
+        <div class="poster-modal-heading">
+          <div>
+            <strong id="poster-modal-title">我的课程提醒图</strong>
+            <p>在微信中长按图片，选择“保存图片”</p>
+          </div>
+          <button id="close-poster" class="close-poster" type="button" aria-label="关闭提醒图">×</button>
+        </div>
+        <img id="generated-poster" alt="个人课程提醒图" />
+        <a id="download-poster" class="download-poster" download>下载图片</a>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
